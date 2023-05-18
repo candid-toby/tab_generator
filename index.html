@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Guitar Tabs</title>
+</head>
+<body>
+
+<h1>Random Guitar Tabs</h1>
+
+<input type="button" value="Generate" onclick="generateTabs()">
+
+<div id="tabs"></div>
+
+<script>
+function generateTabs() {
+  // Get a random chord progression.
+  var chords = ["C", "G", "Am", "F"];
+  var randomChord = chords[Math.floor(Math.random() * chords.length)];
+
+  // Generate the tabs for the random chord progression.
+  var tabs = "";
+  for (var i = 0; i < 4; i++) {
+    tabs += randomChord + " ";
+  }
+
+  // Display the tabs.
+  document.getElementById("tabs").innerHTML = tabs;
+}
+</script>
+
+</body>
+</html>
