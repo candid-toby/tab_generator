@@ -1,4 +1,4 @@
-const guitarTabGenerator = (tuning, key, numberOfMeasures) => {
+function guitarTabGenerator(tuning, key, numberOfMeasures) {
   // Create an array of notes for the specified tuning.
   const notes = {
     "standard": [
@@ -76,7 +76,7 @@ const guitarTabGenerator = (tuning, key, numberOfMeasures) => {
 
   // Return the guitar tabs.
   return tabs;
-};
+}
 
 // Get the user input.
 const tuning = prompt("Enter the guitar tuning:");
