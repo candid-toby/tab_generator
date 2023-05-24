@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Random Guitar Tabs</title>
+</head>
+<body>
+
+<h1>Random Guitar Tabs</h1>
+
+<input type="button" value="Generate" onclick="generateTabs()">
+
+<div id="tabs"></div>
+
+<script>
 function guitarTabGenerator(tuning, key, numberOfMeasures) {
   // Create an array of notes for the specified tuning.
   const notes = {
@@ -88,3 +102,7 @@ const tabs = guitarTabGenerator(tuning, key, numberOfMeasures);
 
 // Display the guitar tabs.
 document.getElementById("tabs").innerHTML = tabs;
+</script>
+
+</body>
+</html>
