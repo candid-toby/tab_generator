@@ -4,20 +4,7 @@
 <head>
 <title>Random Guitar Tabs</title>
 </head>
-const keySignatures = {
-  c_maj: [c, a, b, c, d, e, f, g],
-  d_maj: [d, e, f_sharp, g, a, b, c_sharp],
-  e_maj: [e, f_sharp, g_sharp, a, b, c_sharp, d_sharp],
-  f_maj: [f, g, a_sharp, b, c, d_sharp, e_sharp],
-  g_maj: [g, a, b_sharp, c_sharp, d, e_sharp, f_sharp],
-  a_maj: [a, b, c_sharp, d_sharp, e, f_sharp, g_sharp],
-  b_maj: [b, c_sharp, d_sharp, e_sharp, f, g_sharp, a_sharp],
-  c_sharp_maj: [c_sharp, a_sharp, b_sharp, c_sharp, d_sharp, e_sharp, f_sharp],
-  d_sharp_maj: [d_sharp, e_sharp, f_sharp_sharp, g_sharp, a_sharp, b_sharp, c_sharp_sharp],
-  f_sharp_maj: [f_sharp, g_sharp, b, b_sharp, c_sharp, e, f],
-  g_sharp_maj: [g_sharp, a_sharp, c, d, d_sharp, f_sharp, g],
-  a_sharp_maj: [a_sharp, c, d, e, f, g, a]
-};
+
 <body>
 
 <h1>Random Guitar Tabs</h1>
@@ -141,7 +128,20 @@ const keySignatures = {
   <div id="noteTable"></div>
 
 <script>
-
+const keySignatures = {
+  c_maj: [c, a, b, c, d, e, f, g],
+  d_maj: [d, e, f_sharp, g, a, b, c_sharp],
+  e_maj: [e, f_sharp, g_sharp, a, b, c_sharp, d_sharp],
+  f_maj: [f, g, a_sharp, b, c, d_sharp, e_sharp],
+  g_maj: [g, a, b_sharp, c_sharp, d, e_sharp, f_sharp],
+  a_maj: [a, b, c_sharp, d_sharp, e, f_sharp, g_sharp],
+  b_maj: [b, c_sharp, d_sharp, e_sharp, f, g_sharp, a_sharp],
+  c_sharp_maj: [c_sharp, a_sharp, b_sharp, c_sharp, d_sharp, e_sharp, f_sharp],
+  d_sharp_maj: [d_sharp, e_sharp, f_sharp_sharp, g_sharp, a_sharp, b_sharp, c_sharp_sharp],
+  f_sharp_maj: [f_sharp, g_sharp, b, b_sharp, c_sharp, e, f],
+  g_sharp_maj: [g_sharp, a_sharp, c, d, d_sharp, f_sharp, g],
+  a_sharp_maj: [a_sharp, c, d, e, f, g, a]
+};
   
      // Function to generate the note table
     function generateNoteTable() {
