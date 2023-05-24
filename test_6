@@ -104,9 +104,38 @@
   <option value="g_sharp">G#</option> 
 </select>
 
+<select name="key_signature">
+  <option value="c_maj">C Major</option>
+  <option value="d_maj">D Major</option>
+  <option value="e_maj">E Major</option>
+  <option value="f_maj">F Major</option>
+  <option value="g_maj">G Major</option>
+  <option value="a_maj">A Major</option>
+  <option value="b_maj">B Major</option>
+  <option value="c_sharp_maj">C# Major</option>
+  <option value="d_sharp_maj">D# Major</option>
+  <option value="f_sharp_maj">F# Major</option>
+  <option value="g_sharp_maj">G# Major</option>
+  <option value="a_sharp_maj">A# Major</option>
+</select>
+
   <input type="submit" value="Generate Table">
 </form>
 
+const keySignatures = {
+  c_maj: [c, a, b, c, d, e, f, g],
+  d_maj: [d, e, f_sharp, g, a, b, c_sharp],
+  e_maj: [e, f_sharp, g_sharp, a, b, c_sharp, d_sharp],
+  f_maj: [f, g, a_sharp, b, c, d_sharp, e_sharp],
+  g_maj: [g, a, b_sharp, c_sharp, d, e_sharp, f_sharp],
+  a_maj: [a, b, c_sharp, d_sharp, e, f_sharp, g_sharp],
+  b_maj: [b, c_sharp, d_sharp, e_sharp, f, g_sharp, a_sharp],
+  c_sharp_maj: [c_sharp, a_sharp, b_sharp, c_sharp, d_sharp, e_sharp, f_sharp],
+  d_sharp_maj: [d_sharp, e_sharp, f_sharp_sharp, g_sharp, a_sharp, b_sharp, c_sharp_sharp],
+  f_sharp_maj: [f_sharp, g_sharp, b, b_sharp, c_sharp, e, f],
+  g_sharp_maj: [g_sharp, a_sharp, c, d, d_sharp, f_sharp, g],
+  a_sharp_maj: [a_sharp, c, d, e, f, g, a]
+};
   <h1>Note Table</h1>
   <div id="noteTable"></div>
 
@@ -364,7 +393,7 @@ else if (string_6_start === "g_sharp") {
 }
     
    
-      var table_all_strings_all_notes = "<table><tr><th>Fret Number</th><th>String 1 Note</th><th>String 2 Note</th><th>String 3 Note</th><th>String 4 Note</th><th>String 5 Note</th><th>String 6 Note </tr>";
+      var table_all_strings_all_notes = "<table><tr><th>Fret Number</th><th>String 1 Note</th><th>String 2 Note</th><th>String 3 Note</th><th>String 4 Note</th><th>String 5 Note</th><th>String 6 Note</th> </tr>";
       
       for (var i = 1; i <= 21; i++) {
         var noteIndex = (i - 1) % string_1_notes.length;
@@ -376,18 +405,273 @@ else if (string_6_start === "g_sharp") {
         var note_6 = string_6_notes[noteIndex];
         table_all_strings_all_notes += "<tr><td>" + i + "</td><td>" + note_1 +"</td><td>" + note_2 +"</td><td>" + note_3 +"</td><td>" + note_4 +"</td><td>" + note_5 +"</td><td>" + note_6 + "</td></tr>";
       }
-      
-
       table_all_strings_all_notes += "</table>";
 
       document.getElementById("noteTable").innerHTML = table_all_strings_all_notes;
     }
+function generate_feasible_fret_table() {
+  var form = document.getElementById("noteForm");
+       var string_1_start = form.elements.string_1_start.value;
+       var string_2_start = form.elements.string_2_start.value;
+       var string_3_start = form.elements.string_3_start.value;
+       var string_4_start = form.elements.string_4_start.value;
+       var string_5_start = form.elements.string_5_start.value;
+       var string_6_start = form.elements.string_6_start.value;
+var string_1_notes = [];
+if (string_1_start === "a") {
+  var string_1_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_1_start === "a_sharp") {
+  var string_1_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_1_start === "b") {
+  var string_1_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_1_start === "c") {
+  var string_1_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_1_start === "c_sharp") {
+  var string_1_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_1_start === "d") {
+  var string_1_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_1_start === "d_sharp") {
+  var string_1_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_1_start === "e") {
+  var string_1_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_1_start === "f") {
+  var string_1_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_1_start === "f_sharp") {
+  var string_1_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_1_start === "g") {
+  var string_1_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_1_start === "g_sharp") {
+  var string_1_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+
+var string_2_notes = [];
+if (string_2_start === "a") {
+  var string_2_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_2_start === "a_sharp") {
+  var string_2_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_2_start === "b") {
+  var string_2_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_2_start === "c") {
+  var string_2_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_2_start === "c_sharp") {
+  var string_2_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_2_start === "d") {
+  var string_2_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_2_start === "d_sharp") {
+  var string_2_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_2_start === "e") {
+  var string_2_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_2_start === "f") {
+  var string_2_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_2_start === "f_sharp") {
+  var string_2_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_2_start === "g") {
+  var string_2_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_2_start === "g_sharp") {
+  var string_2_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+
+
+var string_3_notes = [];
+if (string_3_start === "a") {
+  var string_3_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_3_start === "a_sharp") {
+  var string_3_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_3_start === "b") {
+  var string_3_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_3_start === "c") {
+  var string_3_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_3_start === "c_sharp") {
+  var string_3_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_3_start === "d") {
+  var string_3_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_3_start === "d_sharp") {
+  var string_3_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_3_start === "e") {
+  var string_3_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_3_start === "f") {
+  var string_3_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_3_start === "f_sharp") {
+  var string_3_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_3_start === "g") {
+  var string_3_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_3_start === "g_sharp") {
+  var string_3_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+
+var string_4_notes = [];
+if (string_4_start === "a") {
+  var string_4_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_4_start === "a_sharp") {
+  var string_4_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_4_start === "b") {
+  var string_4_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_4_start === "c") {
+  var string_4_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_4_start === "c_sharp") {
+  var string_4_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_4_start === "d") {
+  var string_4_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_4_start === "d_sharp") {
+  var string_4_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_4_start === "e") {
+  var string_4_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_4_start === "f") {
+  var string_4_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_4_start === "f_sharp") {
+  var string_4_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_4_start === "g") {
+  var string_4_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_4_start === "g_sharp") {
+  var string_4_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+
+var string_5_notes = [];
+if (string_5_start === "a") {
+  var string_5_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_5_start === "a_sharp") {
+  var string_5_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_5_start === "b") {
+  var string_5_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_5_start === "c") {
+  var string_5_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_5_start === "c_sharp") {
+  var string_5_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_5_start === "d") {
+  var string_5_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_5_start === "d_sharp") {
+  var string_5_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_5_start === "e") {
+  var string_5_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_5_start === "f") {
+  var string_5_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_5_start === "f_sharp") {
+  var string_5_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_5_start === "g") {
+  var string_5_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_5_start === "g_sharp") {
+  var string_5_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+
+
+var string_6_notes = [];
+if (string_6_start === "a") {
+  var string_6_notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
+}
+else if (string_6_start === "a_sharp") {
+  var string_6_notes = ["A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A" ];
+}
+
+else if (string_6_start === "b") {
+  var string_6_notes = ["B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#" ];
+}
+else if (string_6_start === "c") {
+  var string_6_notes = [ "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B" ];
+}
+else if (string_6_start === "c_sharp") {
+  var string_6_notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
+}
+else if (string_6_start === "d") {
+  var string_6_notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+}
+else if (string_6_start === "d_sharp") {
+  var string_6_notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+}
+else if (string_6_start === "e") {
+  var string_6_notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+}
+else if (string_6_start === "f") {
+  var string_6_notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+}
+else if (string_6_start === "f_sharp") {
+  var string_6_notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+}
+else if (string_6_start === "g") {
+  var string_6_notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+}
+else if (string_6_start === "g_sharp") {
+  var string_6_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+}
+
+var selectedKeySignature = document.querySelector("select[name=key_signature]").value;
+
+
+}
+
+
+
 
   // Handle form submission
   var form = document.getElementById("noteForm");
   form.addEventListener("submit", function (event) {
     event.preventDefault(); // Prevent default form submission
     generateNoteTable(); // Call the function to generate the note table
+    generate_feasible_fret_table();
   });
 
 </script>
