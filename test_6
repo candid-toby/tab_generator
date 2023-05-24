@@ -134,6 +134,27 @@
     else if (string_1_start === "c_sharp") {
       var notes = [ "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C" ];
     }
+    else if (string_1_start === "d") {
+      var notes = [ "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#" ];
+    }
+    else if (string_1_start === "d_sharp") {
+      var notes = ["D#", "E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D" ];
+    }
+    else if (string_1_start === "e") {
+      var notes = ["E", "F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#" ];
+    }
+    else if (string_1_start === "f") {
+      var notes = ["F", "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E" ];
+    }
+    else if (string_1_start === "f_sharp") {
+      var notes = [ "F#", "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F" ];
+    }
+    else if (string_1_start === "g") {
+      var notes = [ "G", "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#" ];
+    }
+    else if (string_1_start === "g_sharp") {
+      var notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
+    }
     
     
       
