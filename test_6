@@ -363,19 +363,24 @@ else if (string_6_start === "g_sharp") {
   var string_6_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
 }
     
-    
+   
+      var table_all_strings_all_notes = "<table><tr><th>Fret Number</th><th>String 1 Note</th><th>String 2 Note</th><th>String 3 Note</th><th>String 4 Note</th><th>String 5 Note</th><th>String 6 Note </tr>";
       
-      var table_string_1 = "<table><tr><th>Fret Number</th><th>Note</th></tr>";
-
       for (var i = 1; i <= 21; i++) {
         var noteIndex = (i - 1) % string_1_notes.length;
-        var note = string_1_notes[noteIndex];
-        table_string_1 += "<tr><td>" + i + "</td><td>" + note + "</td></tr>";
+        var note_1 = string_1_notes[noteIndex];
+        var note_2 = string_2_notes[noteIndex];
+        var note_3 = string_3_notes[noteIndex];
+        var note_4 = string_4_notes[noteIndex];
+        var note_5 = string_5_notes[noteIndex];
+        var note_6 = string_6_notes[noteIndex];
+        table_all_strings_all_notes += "<tr><td>" + i + "</td><td>" + note_1 +"</td><td>" + note_2 +"</td><td>" + note_3 +"</td><td>" + note_4 +"</td><td>" + note_5 +"</td><td>" + note_6 + "</td></tr>";
       }
+      
 
-      table_string_1 += "</table>";
+      table_all_strings_all_notes += "</table>";
 
-      document.getElementById("noteTable").innerHTML = table_string_1;
+      document.getElementById("noteTable").innerHTML = table_all_strings_all_notes;
     }
 
   // Handle form submission
