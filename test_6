@@ -103,6 +103,9 @@
   <option value="g_sharp">G#</option> 
 </select>
 
+  <h1>Note Table</h1>
+  <div id="noteTable"></div>
+
 <script>
   function entire_fretboard() {
     var string_1_start = document.getElementById('string_1_start').value;
