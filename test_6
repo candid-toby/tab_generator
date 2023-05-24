@@ -7,6 +7,7 @@
 <body>
 
 <h1>Random Guitar Tabs</h1>
+<form id="noteForm">
 <label for="string_1_start">String 1</label>
 <select name="string_1_start" id="string_1_start">
   <option value="a">A</option>
@@ -103,18 +104,20 @@
   <option value="g_sharp">G#</option> 
 </select>
 
+  <input type="submit" value="Generate Table">
+</form>
+
   <h1>Note Table</h1>
   <div id="noteTable"></div>
 
 <script>
-  function entire_fretboard() {
-    var string_1_start = document.getElementById('string_1_start').value;
-  }
+
   
      // Function to generate the note table
     function generateNoteTable() {
-      //var startingNote = "A";
-      var string_1_start = document.getElementById('string_1_start').value;
+      var form = document.getElementById("noteForm");
+       var string_1_start = form.elements.string_1_start.value;
+      var notes = [];
       if (string_1_start === "a") {
       var notes = ["A", "A#", "B", "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#"];
     }
@@ -147,7 +150,12 @@
       document.getElementById("noteTable").innerHTML = table;
     }
 
-      generateNoteTable();
+  // Handle form submission
+  var form = document.getElementById("noteForm");
+  form.addEventListener("submit", function (event) {
+    event.preventDefault(); // Prevent default form submission
+    generateNoteTable(); // Call the function to generate the note table
+  });
 
 </script>
 </body>
