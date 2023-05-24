@@ -8,25 +8,25 @@
 <h1>Random Guitar Tabs</h1>
 
 <select id="tuning">
-  <option value="standard">Standard</option>
-  <option value="dadgad">Dadgad</option>
+  <option value="e_standard">E Standard</option>
+  <!-- <option value="dadgad">Dadgad</option>
   <option value="drop c">Drop C</option>
-  <option value="drop d">Drop D</option>
+  <option value="drop d">Drop D</option> -->
 </select>
 
 <select id="key">
-  <option value="C">C</option>
-  <option value="Dm">Dm</option>
+  <option value="e">E major</option>
+ <!-- <option value="Dm">Dm</option>
   <option value="Em">Em</option>
   <option value="F">F</option>
   <option value="G">G</option>
   <option value="Am">Am</option>
-  <option value="Bm">Bm</option>
+  <option value="Bm">Bm</option> -->
 </select>
 
-<input type="number" id="numberOfMeasures" min="1" max="16" value="4">
+<!-- <input type="number" id="numberOfMeasures" min="1" max="16" value="4"> -->
 
-<input type="button" value="Generate" onclick="generateTabs()">
+<input type="button" value="Generate" onclick="guitarTabGenerator()">
 
 <div id="tabs"></div>
 
