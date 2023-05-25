@@ -142,6 +142,11 @@
     <h1>String 6 Frets in Key </h1>
 <div id="string_6_index_values"></div>
   
+      <h1>Strings in Tabs</h1>
+<div id="string_array"></div>
+    <h1>Frets in Tabs </h1>
+<div id="fret_array"></div>
+  
 <script>
   
  function generate_feasible_frets(){
@@ -481,6 +486,29 @@ for (let i = 0; i < string_1_notes.length; i++) {
    document.getElementById("string_4_index_values").innerHTML = JSON.stringify(string_4_index_values);
    document.getElementById("string_5_index_values").innerHTML = JSON.stringify(string_5_index_values);
    document.getElementById("string_6_index_values").innerHTML = JSON.stringify(string_6_index_values);
+   
+   var all_strings_array = [1,2,3,4,5,6];
+   var string_array = [];
+   var fret_array = [];
+  
+   for (let i = 0; i < 16; i++) {
+     feasible_fret_array = [];
+     string_array.push(Math.ceil(Math.random() * all_strings_array.length));
+     if (string_array[i] == 1){feasible_fret_array = string_1_index_values;}
+     else if (string_array[i] == 2){feasible_fret_array = string_2_index_values;}
+     else if (string_array[i] == 3){feasible_fret_array = string_3_index_values;}
+     else if (string_array[i] == 4){feasible_fret_array = string_4_index_values;}
+     else if (string_array[i] == 5){feasible_fret_array = string_5_index_values;}
+     else if (string_array[i] == 6){feasible_fret_array = string_6_index_values;}
+     
+     fret_index = Math.round(Math.random() * (feasible_fret_array.length-1));
+     fret_array.push(feasible_fret_array[fret_index]);
+     
+}
+      document.getElementById("string_array").innerHTML = JSON.stringify(string_array);
+      document.getElementById("fret_array").innerHTML = JSON.stringify(fret_array);
+
+   
  }
   
   
