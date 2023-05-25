@@ -131,6 +131,17 @@
   <h1>String 1 Frets in Key </h1>
 <div id="string_1_index_values"></div>
   
+    <h1>String 2 Frets in Key </h1>
+<div id="string_2_index_values"></div>
+    <h1>String 3 Frets in Key </h1>
+<div id="string_3_index_values"></div>
+    <h1>String 4 Frets in Key </h1>
+<div id="string_4_index_values"></div>
+    <h1>String 5 Frets in Key </h1>
+<div id="string_5_index_values"></div>
+    <h1>String 6 Frets in Key </h1>
+<div id="string_6_index_values"></div>
+  
 <script>
   
  function generate_feasible_frets(){
@@ -426,15 +437,50 @@ else if (string_6_start === "g_sharp") {
   var string_6_notes = [ "G#", "A", "A#", "B", "C", "C#",  "D", "D#", "E", "F", "F#", "G" ];
 }
 var string_1_index_values = [];
-
+var string_2_index_values = [];
+   var string_3_index_values = [];
+   var string_4_index_values = [];
+   var string_5_index_values = [];
+   var string_6_index_values = [];
+   
 for (let i = 0; i < string_1_notes.length; i++) {
   if (feasible_notes.includes(string_1_notes[i])) {
     string_1_index_values.push(i);
   }
 }
+   for (let i = 0; i < string_2_notes.length; i++) {
+  if (feasible_notes.includes(string_2_notes[i])) {
+    string_2_index_values.push(i);
+  }
+}
+   for (let i = 0; i < string_3_notes.length; i++) {
+  if (feasible_notes.includes(string_3_notes[i])) {
+    string_3_index_values.push(i);
+  }
+}
+   for (let i = 0; i < string_4_notes.length; i++) {
+  if (feasible_notes.includes(string_4_notes[i])) {
+    string_4_index_values.push(i);
+  }
+}
+   for (let i = 0; i < string_5_notes.length; i++) {
+  if (feasible_notes.includes(string_5_notes[i])) {
+    string_5_index_values.push(i);
+  }
+}
+   for (let i = 0; i < string_6_notes.length; i++) {
+  if (feasible_notes.includes(string_6_notes[i])) {
+    string_6_index_values.push(i);
+  }
+}
 
 
    document.getElementById("string_1_index_values").innerHTML = JSON.stringify(string_1_index_values);
+   document.getElementById("string_2_index_values").innerHTML = JSON.stringify(string_2_index_values);
+   document.getElementById("string_3_index_values").innerHTML = JSON.stringify(string_3_index_values);
+   document.getElementById("string_4_index_values").innerHTML = JSON.stringify(string_4_index_values);
+   document.getElementById("string_5_index_values").innerHTML = JSON.stringify(string_5_index_values);
+   document.getElementById("string_6_index_values").innerHTML = JSON.stringify(string_6_index_values);
  }
   
   
