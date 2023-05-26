@@ -121,6 +121,9 @@
 
   <input type="submit" value="Generate Table">
 </form>
+  
+    <h1>Tabs Table</h1>
+  <div id="tabs_table"></div>
     <h1>Tabs </h1>
 <div id="string_1_tabs"></div>
   <div id="string_2_tabs"></div>
@@ -529,17 +532,37 @@ for (let i = 0; i < string_1_notes.length; i++) {
     // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
     if (string_array[i] === 1) {
       string_1_frets.push(fret_array[i]);
-    } else if (fret_array[i] > 9) {
-      string_1_frets.push("- ");
     } else {
       string_1_frets.push("-");
     }
   }
 
-  // Join the frets array into a single string.
-  var string_1_tabs = string_1_frets.join(" ");
-   document.getElementById("string_1_tabs").innerHTML = JSON.stringify(string_1_tabs).slice(1, -1);;
+      var string_2_frets = [string_2_start];
+     if (string_2_frets[0].includes("_sharp")) {
+    // Replace "_sharp" with "#".
+    string_2_frets[0] = string_2_frets[0].replace("_sharp", "#");
+  }
+   string_2_frets[0] = string_2_frets[0].toUpperCase();
    
+  for (let i = 0; i < string_array.length; i++) {
+    if (i % 8 == 0){string_2_frets.push("|");}
+    // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
+    if (string_array[i] === 2) {
+      string_2_frets.push(fret_array[i]);
+    } else {
+      string_2_frets.push("-");
+    }
+  }
+   
+      var tabs_table = "<table><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>";
+        tabs_table += "<tr><td>" + string_2_frets[0] + "</td><td>" + string_2_frets[1] + "</td><td>" + string_2_frets[2] + "</td><td>" + string_2_frets[3] + "</td><td>" + string_2_frets[4] + "</td><td>" + string_2_frets[5] + "</td><td>" + string_2_frets[6] + "</td><td>" + string_2_frets[7] + "</td><td>" + string_2_frets[8] + "</td><td>" + string_2_frets[9] + "</td><td>" + string_2_frets[10] + "</td><td>" + string_2_frets[11] + "</td><td>" + string_2_frets[12] + "</td><td>" + string_2_frets[13] + "</td><td>" + string_2_frets[14] + "</td><td>" + string_2_frets[15] + "</td><td>" + string_2_frets[16] + "</td><td>" + string_2_frets[17] + "</td><td>" + string_2_frets[18] + "</td><td>" + string_2_frets[19] + "</td><td>" + string_2_frets[20] + "</td><td>" + string_2_frets[21] + "</td><td>" + string_2_frets[22] + "</td><td>" + string_2_frets[23] + "</td><td>" + string_2_frets[24] + "</td><td>" + string_2_frets[25] + "</td><td>" + string_2_frets[26] + "</td><td>" + string_2_frets[27] + "</td><td>" + string_2_frets[28] + "</td><td>" + string_2_frets[29] + "</td><td>" + string_2_frets[30] + "</td><td>" + string_2_frets[31] + "</td><td>" + string_2_frets[32] + "</td><td>" + string_2_frets[33] + "</td><td>" + string_2_frets[34] + "</td><td>" + string_2_frets[35] + "</td><td>" + string_2_frets[36] + "</td><td>" + string_2_frets[37] + "</td><td>" + string_2_frets[38] + "</td></tr>";
+
+   tabs_table += "<tr><td>" + string_1_frets[0] + "</td><td>" +   string_1_frets[1] + "</td><td>" + string_1_frets[2] + "</td><td>" + string_1_frets[3] + "</td><td>" + string_1_frets[4] + "</td><td>" + string_1_frets[5] + "</td><td>" + string_1_frets[6] + "</td><td>" + string_1_frets[7] + "</td><td>" + string_1_frets[8] + "</td><td>" + string_1_frets[9] + "</td><td>" + string_1_frets[10] + "</td><td>" + string_1_frets[11] + "</td><td>" + string_1_frets[12] + "</td><td>" + string_1_frets[13] + "</td><td>" + string_1_frets[14] + "</td><td>" + string_1_frets[15] + "</td><td>" + string_1_frets[16] + "</td><td>" + string_1_frets[17] + "</td><td>" + string_1_frets[18] + "</td><td>" + string_1_frets[19] + "</td><td>" + string_1_frets[20] + "</td><td>" + string_1_frets[21] + "</td><td>" + string_1_frets[22] + "</td><td>" + string_1_frets[23] + "</td><td>" + string_1_frets[24] + "</td><td>" + string_1_frets[25] + "</td><td>" + string_1_frets[26] + "</td><td>" + string_1_frets[27] + "</td><td>" + string_1_frets[28] + "</td><td>" + string_1_frets[29] + "</td><td>" + string_1_frets[30] + "</td><td>" + string_1_frets[31] + "</td><td>" + string_1_frets[32] + "</td><td>" + string_1_frets[33] + "</td><td>" + string_1_frets[34] + "</td><td>" + string_1_frets[35] + "</td><td>" + string_1_frets[36] + "</td><td>" + string_1_frets[37] + "</td><td>" + string_1_frets[38] + "</td></tr>";
+      
+
+      tabs_table += "</table>";
+
+      document.getElementById("tabs_table").innerHTML = tabs_table;
    
  }
   
