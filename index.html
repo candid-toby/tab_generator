@@ -121,7 +121,14 @@
 
   <input type="submit" value="Generate Table">
 </form>
-
+    <h1>Tabs </h1>
+<div id="string_1_tabs"></div>
+  <div id="string_2_tabs"></div>
+  <div id="string_3_tabs"></div>
+  <div id="string_4_tabs"></div>
+  <div id="string_5_tabs"></div>
+  <div id="string_6_tabs"></div>
+  
   <h1>All Notes Table</h1>
   <div id="noteTable"></div>
 
@@ -146,8 +153,7 @@
 <div id="string_array"></div>
     <h1>Frets in Tabs </h1>
 <div id="fret_array"></div>
-    <h1>String 1 Tabs </h1>
-<div id="string_1_tabs"></div>
+
      
 <script>
   
@@ -512,6 +518,12 @@ for (let i = 0; i < string_1_notes.length; i++) {
 
      // Loop over the stringArray and fretArray arrays.
    var string_1_frets = [string_1_start];
+     if (string_1_frets[0].includes("_sharp")) {
+    // Replace "_sharp" with "#".
+    string_1_frets[0] = string_1_frets[0].replace("_sharp", "#");
+  }
+   string_1_frets[0] = string_1_frets[0].toUpperCase();
+   
   for (let i = 0; i < string_array.length; i++) {
     if (i % 8 == 0){string_1_frets.push("|");}
     // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
