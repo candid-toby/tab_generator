@@ -511,8 +511,9 @@ for (let i = 0; i < string_1_notes.length; i++) {
       document.getElementById("fret_array").innerHTML = JSON.stringify(fret_array);
 
      // Loop over the stringArray and fretArray arrays.
-   var string_1_frets = [];
+   var string_1_frets = [string_1_start];
   for (let i = 0; i < string_array.length; i++) {
+    if (i % 8 == 0){string_1_frets.push("|");}
     // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
     if (string_array[i] === 1) {
       string_1_frets.push(fret_array[i]);
@@ -526,6 +527,8 @@ for (let i = 0; i < string_1_notes.length; i++) {
   // Join the frets array into a single string.
   var string_1_tabs = string_1_frets.join(" ");
    document.getElementById("string_1_tabs").innerHTML = JSON.stringify(string_1_tabs).slice(1, -1);;
+   
+   
  }
   
   
