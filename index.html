@@ -568,8 +568,83 @@ for (let i = 0; i < string_1_notes.length; i++) {
     }
   }
    
+var string_3_frets = [string_3_start];
+if (string_3_frets[0].includes("_sharp")) {
+  // Replace "_sharp" with "#".
+  string_3_frets[0] = string_3_frets[0].replace("_sharp", "#");
+}
+string_3_frets[0] = string_3_frets[0].toUpperCase();
+
+for (let i = 0; i < string_array.length; i++) {
+  if (i % 8 == 0){string_3_frets.push("|");}
+  // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
+  if (string_array[i] === 3) {
+    string_3_frets.push(fret_array[i]);
+  } else {
+    string_3_frets.push("-");
+  }
+}
+   
+  var string_4_frets = [string_4_start];
+if (string_4_frets[0].includes("_sharp")) {
+  // Replace "_sharp" with "#".
+  string_4_frets[0] = string_4_frets[0].replace("_sharp", "#");
+}
+string_4_frets[0] = string_4_frets[0].toUpperCase();
+
+for (let i = 0; i < string_array.length; i++) {
+  if (i % 8 == 0){string_4_frets.push("|");}
+  // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
+  if (string_array[i] === 4) {
+    string_4_frets.push(fret_array[i]);
+  } else {
+    string_4_frets.push("-");
+  }
+}
+   var string_5_frets = [string_5_start];
+if (string_5_frets[0].includes("_sharp")) {
+  // Replace "_sharp" with "#".
+  string_5_frets[0] = string_5_frets[0].replace("_sharp", "#");
+}
+string_5_frets[0] = string_5_frets[0].toUpperCase();
+
+for (let i = 0; i < string_array.length; i++) {
+  if (i % 8 == 0){string_5_frets.push("|");}
+  // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
+  if (string_array[i] === 5) {
+    string_5_frets.push(fret_array[i]);
+  } else {
+    string_5_frets.push("-");
+  }
+}
+   var string_6_frets = [string_6_start];
+if (string_6_frets[0].includes("_sharp")) {
+  // Replace "_sharp" with "#".
+  string_6_frets[0] = string_6_frets[0].replace("_sharp", "#");
+}
+string_6_frets[0] = string_6_frets[0].toUpperCase();
+
+for (let i = 0; i < string_array.length; i++) {
+  if (i % 8 == 0){string_6_frets.push("|");}
+  // If the value of string_array[i] is 1, add the value of fret_array[i] to the frets array.
+  if (string_array[i] === 6) {
+    string_6_frets.push(fret_array[i]);
+  } else {
+    string_6_frets.push("-");
+  }
+}
+
       var tabs_table = "<table><tr><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>";
-        tabs_table += "<tr><td>" + string_2_frets[0] + "</td><td>" + string_2_frets[1] + "</td><td>" + string_2_frets[2] + "</td><td>" + string_2_frets[3] + "</td><td>" + string_2_frets[4] + "</td><td>" + string_2_frets[5] + "</td><td>" + string_2_frets[6] + "</td><td>" + string_2_frets[7] + "</td><td>" + string_2_frets[8] + "</td><td>" + string_2_frets[9] + "</td><td>" + string_2_frets[10] + "</td><td>" + string_2_frets[11] + "</td><td>" + string_2_frets[12] + "</td><td>" + string_2_frets[13] + "</td><td>" + string_2_frets[14] + "</td><td>" + string_2_frets[15] + "</td><td>" + string_2_frets[16] + "</td><td>" + string_2_frets[17] + "</td><td>" + string_2_frets[18] + "</td><td>" + string_2_frets[19] + "</td><td>" + string_2_frets[20] + "</td><td>" + string_2_frets[21] + "</td><td>" + string_2_frets[22] + "</td><td>" + string_2_frets[23] + "</td><td>" + string_2_frets[24] + "</td><td>" + string_2_frets[25] + "</td><td>" + string_2_frets[26] + "</td><td>" + string_2_frets[27] + "</td><td>" + string_2_frets[28] + "</td><td>" + string_2_frets[29] + "</td><td>" + string_2_frets[30] + "</td><td>" + string_2_frets[31] + "</td><td>" + string_2_frets[32] + "</td><td>" + string_2_frets[33] + "</td><td>" + string_2_frets[34] + "</td><td>" + string_2_frets[35] + "</td><td>" + string_2_frets[36] + "</td><td>" + string_2_frets[37] + "</td><td>" + string_2_frets[38] + "</td></tr>";
+   
+   tabs_table += "<tr><td>" + string_6_frets[0] + "</td><td>" + string_6_frets[1] +"</td><td>" + string_6_frets[2] + "</td><td>" + string_6_frets[3] + "</td><td>" + string_6_frets[4] + "</td><td>" + string_6_frets[5] + "</td><td>" + string_6_frets[6] + "</td><td>" + string_6_frets[7] + "</td><td>" + string_6_frets[8] + "</td><td>" + string_6_frets[9] + "</td><td>" + string_6_frets[10] + "</td><td>" + string_6_frets[11] + "</td><td>" + string_6_frets[12] + "</td><td>" + string_6_frets[13] + "</td><td>" + string_6_frets[14] + "</td><td>" + string_6_frets[15] + "</td><td>" + string_6_frets[16] + "</td><td>" + string_6_frets[17] + "</td><td>" + string_6_frets[18] + "</td><td>" + string_6_frets[19] + "</td><td>" + string_6_frets[20] + "</td><td>" + string_6_frets[21] + "</td><td>" + string_6_frets[22] + "</td><td>" + string_6_frets[23] + "</td><td>" + string_6_frets[24] + "</td><td>" + string_6_frets[25] + "</td><td>" + string_6_frets[26] + "</td><td>" + string_6_frets[27] + "</td><td>" + string_6_frets[28] + "</td><td>" + string_6_frets[29] + "</td><td>" + string_6_frets[30] + "</td><td>" + string_6_frets[31] + "</td><td>" + string_6_frets[32] + "</td><td>" + string_6_frets[33] + "</td><td>" + string_6_frets[34] + "</td><td>" + string_6_frets[35] + "</td><td>" + string_6_frets[36] + "</td><td>" + string_6_frets[37] + "</td><td>" + string_6_frets[38] + "</td></tr>";
+   
+   tabs_table += "<tr><td>" + string_5_frets[0] + "</td><td>" + string_5_frets[1] +"</td><td>" + string_5_frets[2] + "</td><td>" + string_5_frets[3] + "</td><td>" + string_5_frets[4] + "</td><td>" + string_5_frets[5] + "</td><td>" + string_5_frets[6] + "</td><td>" + string_5_frets[7] + "</td><td>" + string_5_frets[8] + "</td><td>" + string_5_frets[9] + "</td><td>" + string_5_frets[10] + "</td><td>" + string_5_frets[11] + "</td><td>" + string_5_frets[12] + "</td><td>" + string_5_frets[13] + "</td><td>" + string_5_frets[14] + "</td><td>" + string_5_frets[15] + "</td><td>" + string_5_frets[16] + "</td><td>" + string_5_frets[17] + "</td><td>" + string_5_frets[18] + "</td><td>" + string_5_frets[19] + "</td><td>" + string_5_frets[20] + "</td><td>" + string_5_frets[21] + "</td><td>" + string_5_frets[22] + "</td><td>" + string_5_frets[23] + "</td><td>" + string_5_frets[24] + "</td><td>" + string_5_frets[25] + "</td><td>" + string_5_frets[26] + "</td><td>" + string_5_frets[27] + "</td><td>" + string_5_frets[28] + "</td><td>" + string_5_frets[29] + "</td><td>" + string_5_frets[30] + "</td><td>" + string_5_frets[31] + "</td><td>" + string_5_frets[32] + "</td><td>" + string_5_frets[33] + "</td><td>" + string_5_frets[34] + "</td><td>" + string_5_frets[35] + "</td><td>" + string_5_frets[36] + "</td><td>" + string_5_frets[37] + "</td><td>" + string_5_frets[38] + "</td></tr>";
+   
+   tabs_table += "<tr><td>" + string_4_frets[0] + "</td><td>" + string_4_frets[1] +"</td><td>" + string_4_frets[2] + "</td><td>" + string_4_frets[3] + "</td><td>" + string_4_frets[4] + "</td><td>" + string_4_frets[5] + "</td><td>" + string_4_frets[6] + "</td><td>" + string_4_frets[7] + "</td><td>" + string_4_frets[8] + "</td><td>" + string_4_frets[9] + "</td><td>" + string_4_frets[10] + "</td><td>" + string_4_frets[11] + "</td><td>" + string_4_frets[12] + "</td><td>" + string_4_frets[13] + "</td><td>" + string_4_frets[14] + "</td><td>" + string_4_frets[15] + "</td><td>" + string_4_frets[16] + "</td><td>" + string_4_frets[17] + "</td><td>" + string_4_frets[18] + "</td><td>" + string_4_frets[19] + "</td><td>" + string_4_frets[20] + "</td><td>" + string_4_frets[21] + "</td><td>" + string_4_frets[22] + "</td><td>" + string_4_frets[23] + "</td><td>" + string_4_frets[24] + "</td><td>" + string_4_frets[25] + "</td><td>" + string_4_frets[26] + "</td><td>" + string_4_frets[27] + "</td><td>" + string_4_frets[28] + "</td><td>" + string_4_frets[29] + "</td><td>" + string_4_frets[30] + "</td><td>" + string_4_frets[31] + "</td><td>" + string_4_frets[32] + "</td><td>" + string_4_frets[33] + "</td><td>" + string_4_frets[34] + "</td><td>" + string_4_frets[35] + "</td><td>" + string_4_frets[36] + "</td><td>" + string_4_frets[37] + "</td><td>" + string_4_frets[38] + "</td></tr>";
+   
+   tabs_table += "<tr><td>" + string_3_frets[0] + "</td><td>" + string_3_frets[1] + "</td><td>" + string_3_frets[2] + "</td><td>" + string_3_frets[3] + "</td><td>" + string_3_frets[4] + "</td><td>" + string_3_frets[5] + "</td><td>" + string_3_frets[6] + "</td><td>" + string_3_frets[7] + "</td><td>" + string_3_frets[8] + "</td><td>" + string_3_frets[9] + "</td><td>" + string_3_frets[10] + "</td><td>" + string_3_frets[11] + "</td><td>" + string_3_frets[12] + "</td><td>" + string_3_frets[13] + "</td><td>" + string_3_frets[14] + "</td><td>" + string_3_frets[15] + "</td><td>" + string_3_frets[16] + "</td><td>" + string_3_frets[17] + "</td><td>" + string_3_frets[18] + "</td><td>" + string_3_frets[19] + "</td><td>" + string_3_frets[20] + "</td><td>" + string_3_frets[21] + "</td><td>" + string_3_frets[22] + "</td><td>" + string_3_frets[23] + "</td><td>" + string_3_frets[24] + "</td><td>" + string_3_frets[25] + "</td><td>" + string_3_frets[26] + "</td><td>" + string_3_frets[27] + "</td><td>" + string_3_frets[28] + "</td><td>" + string_3_frets[29] + "</td><td>" + string_3_frets[30] + "</td><td>" + string_3_frets[31] + "</td><td>" + string_3_frets[32] + "</td><td>" + string_3_frets[33] + "</td><td>" + string_3_frets[34] + "</td><td>" + string_3_frets[35] + "</td><td>" + string_3_frets[36] + "</td><td>" + string_3_frets[37] + "</td><td>" + string_3_frets[38] + "</td></tr>";
+   
+   tabs_table += "<tr><td>" + string_2_frets[0] + "</td><td>" + string_2_frets[1] + "</td><td>" + string_2_frets[2] + "</td><td>" + string_2_frets[3] + "</td><td>" + string_2_frets[4] + "</td><td>" + string_2_frets[5] + "</td><td>" + string_2_frets[6] + "</td><td>" + string_2_frets[7] + "</td><td>" + string_2_frets[8] + "</td><td>" + string_2_frets[9] + "</td><td>" + string_2_frets[10] + "</td><td>" + string_2_frets[11] + "</td><td>" + string_2_frets[12] + "</td><td>" + string_2_frets[13] + "</td><td>" + string_2_frets[14] + "</td><td>" + string_2_frets[15] + "</td><td>" + string_2_frets[16] + "</td><td>" + string_2_frets[17] + "</td><td>" + string_2_frets[18] + "</td><td>" + string_2_frets[19] + "</td><td>" + string_2_frets[20] + "</td><td>" + string_2_frets[21] + "</td><td>" + string_2_frets[22] + "</td><td>" + string_2_frets[23] + "</td><td>" + string_2_frets[24] + "</td><td>" + string_2_frets[25] + "</td><td>" + string_2_frets[26] + "</td><td>" + string_2_frets[27] + "</td><td>" + string_2_frets[28] + "</td><td>" + string_2_frets[29] + "</td><td>" + string_2_frets[30] + "</td><td>" + string_2_frets[31] + "</td><td>" + string_2_frets[32] + "</td><td>" + string_2_frets[33] + "</td><td>" + string_2_frets[34] + "</td><td>" + string_2_frets[35] + "</td><td>" + string_2_frets[36] + "</td><td>" + string_2_frets[37] + "</td><td>" + string_2_frets[38] + "</td></tr>";
 
    tabs_table += "<tr><td>" + string_1_frets[0] + "</td><td>" +   string_1_frets[1] + "</td><td>" + string_1_frets[2] + "</td><td>" + string_1_frets[3] + "</td><td>" + string_1_frets[4] + "</td><td>" + string_1_frets[5] + "</td><td>" + string_1_frets[6] + "</td><td>" + string_1_frets[7] + "</td><td>" + string_1_frets[8] + "</td><td>" + string_1_frets[9] + "</td><td>" + string_1_frets[10] + "</td><td>" + string_1_frets[11] + "</td><td>" + string_1_frets[12] + "</td><td>" + string_1_frets[13] + "</td><td>" + string_1_frets[14] + "</td><td>" + string_1_frets[15] + "</td><td>" + string_1_frets[16] + "</td><td>" + string_1_frets[17] + "</td><td>" + string_1_frets[18] + "</td><td>" + string_1_frets[19] + "</td><td>" + string_1_frets[20] + "</td><td>" + string_1_frets[21] + "</td><td>" + string_1_frets[22] + "</td><td>" + string_1_frets[23] + "</td><td>" + string_1_frets[24] + "</td><td>" + string_1_frets[25] + "</td><td>" + string_1_frets[26] + "</td><td>" + string_1_frets[27] + "</td><td>" + string_1_frets[28] + "</td><td>" + string_1_frets[29] + "</td><td>" + string_1_frets[30] + "</td><td>" + string_1_frets[31] + "</td><td>" + string_1_frets[32] + "</td><td>" + string_1_frets[33] + "</td><td>" + string_1_frets[34] + "</td><td>" + string_1_frets[35] + "</td><td>" + string_1_frets[36] + "</td><td>" + string_1_frets[37] + "</td><td>" + string_1_frets[38] + "</td></tr>";
       
