@@ -504,7 +504,16 @@ for (let i = 0; i < string_1_notes.length; i++) {
   
    for (let i = 0; i < 32; i++) {
      feasible_fret_array = [];
-     string_array.push(Math.ceil(Math.random() * all_strings_array.length));
+     string_val = Math.ceil(Math.random() * all_strings_array.length);
+     
+       while (Math.abs(string_val - string_array[i - 1]) > 1) {
+    string_val = Math.ceil(Math.random() * all_strings_array.length);
+  }
+     
+     string_array.push(string_val);
+     
+     
+     
      if (string_array[i] == 1){feasible_fret_array = string_1_index_values;}
      else if (string_array[i] == 2){feasible_fret_array = string_2_index_values;}
      else if (string_array[i] == 3){feasible_fret_array = string_3_index_values;}
