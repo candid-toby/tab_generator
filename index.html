@@ -513,6 +513,11 @@ for (let i = 0; i < string_1_notes.length; i++) {
      else if (string_array[i] == 6){feasible_fret_array = string_6_index_values;}
      
      fret_index = Math.round(Math.random() * (feasible_fret_array.length-1));
+     
+       while (Math.abs(feasible_fret_array[fret_index] - fret_array[i - 1]) > 4) {
+    fret_index = Math.round(Math.random() * (feasible_fret_array.length - 1));
+  }
+     
      fret_array.push(feasible_fret_array[fret_index]);
      
 }
