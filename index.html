@@ -103,6 +103,7 @@
   <option value="g">G</option>
   <option value="g_sharp">G#</option> 
 </select>
+  
 <label for="key_signature">Key</label>
 <select name="key_signature">
   <option value="c_maj">C Major</option>
@@ -117,6 +118,13 @@
   <option value="f_sharp_maj">F# Major</option>
   <option value="g_sharp_maj">G# Major</option>
   <option value="a_sharp_maj">A# Major</option>
+</select>
+  
+  <label for="string_number">How many strings does your instrument have?</label>
+<select name="string_number">
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
 </select>
 
   <input type="submit" value="Generate Tabs">
@@ -138,6 +146,7 @@ This generator is a work in progress, and I want to make it useful for people li
  function generate_feasible_frets(){
  var form = document.getElementById("noteForm");
 var key_signature = form.elements.key_signature.value;
+ var string_number = form.elements.string_number.value;
 var feasible_notes = [];
 
 if (key_signature == "c_maj") {
@@ -481,7 +490,7 @@ for (let i = 0; i < string_1_notes.length; i++) {
      feasible_fret_array = [];
      string_val = Math.ceil(Math.random() * all_strings_array.length);
      
-       while (Math.abs(string_val - string_array[i - 1]) > 1) {
+       while ((Math.abs(string_val - string_array[i - 1]) > 1) || string_val >string_number) {
     string_val = Math.ceil(Math.random() * all_strings_array.length);
   }
      
