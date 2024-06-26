@@ -135,6 +135,63 @@
 </select>
 
   <input type="submit" value="Generate Tabs">
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("submitButton").addEventListener("click", function() {
+                // Capture the values of the selects
+                var string1 = document.getElementById("string_1_start").value;
+                var string2 = document.getElementById("string_2_start").value;
+                var string3 = document.getElementById("string_3_start").value;
+                var string4 = document.getElementById("string_4_start").value;
+                var string5 = document.getElementById("string_5_start").value;
+                var string6 = document.getElementById("string_6_start").value;
+
+                // Determine if the tuning is standard or non-standard
+                var isStandardTuning = (string1 === "e" && string2 === "a" && string3 === "d" &&
+                                        string4 === "g" && string5 === "b" && string6 === "e");
+
+                var tuningType = isStandardTuning ? "standard_tuning" : "non_standard_tuning";
+
+                // Create a custom event object
+                var customEvent = {
+                    "event_name": tuningType,
+                    "string1": string1,
+                    "string2": string2,
+                    "string3": string3,
+                    "string4": string4,
+                    "string5": string5,
+                    "string6": string6
+                };
+
+                // Send the custom event to Microsoft Clarity
+                clarity("set", "custom", customEvent);
+            });
+        });
+    </script>
+</body>
+</html>
+Explanation:
+HTML Structure: The HTML includes a form with six dropdowns for each string, allowing users to select their tuning. Each dropdown has options for all possible notes.
+
+JavaScript Event Listener: When the "Submit" button is clicked, the JavaScript captures the values of each dropdown.
+
+Standard Tuning Check: The script checks if the selected values match the standard tuning (EADGBE).
+
+Custom Event Creation and Sending: Depending on whether the tuning is standard or non-standard, it creates a custom event and sends it to Microsoft Clarity using the clarity("set", "custom", customEvent) function.
+
+Replace "YOUR_CLARITY_PROJECT_ID" with your actual Microsoft Clarity project ID. This code will ensure that the appropriate tuning type is tagged and sent to Microsoft Clarity for analysis.
+
+
+
+
+
+
+
+
+
+
+ChatGPT can make m
 </form>
   
     <h1>Tabs</h1>
